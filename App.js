@@ -1,11 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import tailwind from 'twrnc';
+import SplashScreen from './components/splash/SplashScreen';
+import {useFonts} from "expo-font"
 
+import * as ProlongSplashScreen from 'expo-splash-screen';
 export default function App() {
+ 
+ 
+ const [fontsLoaded] =  useFonts({
+    "rubix":require("./assets/fonts/Rubik-VariableFont_wght.ttf"),
+    "rubix-bold":require("./assets/fonts/Rubik-Bold.ttf"),
+    "rubix-semi":require("./assets/fonts/Rubik-SemiBold.ttf")
+  })
+
+  if(!fontsLoaded){
+ ProlongSplashScreen.preventAutoHideAsync();
+  }else{
+    ProlongSplashScreen.hideAsync()
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={tailwind`flex-1`}>
+  <SplashScreen/>
     </View>
   );
 }
@@ -13,8 +30,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  
+   
   },
 });
