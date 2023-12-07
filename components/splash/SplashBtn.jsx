@@ -3,10 +3,10 @@ import React from 'react'
 import tailwind from 'twrnc'
 
 
-const SplashBtn = () => {
+const SplashBtn = ({onPress,name}) => {
   return (
-    <TouchableOpacity style={[tailwind`items-center rounded-xl w-9/10 p-3.5`,{backgroundColor:"#bac4c8"}]}>
-      <Text style={[tailwind`font-bold`,{fontSize:21,fontFamily:"rubix-bold"}]}>Register Now</Text>
+    <TouchableOpacity onPress={onPress} style={[tailwind`items-center rounded-xl w-9/10 p-3.5`,{backgroundColor:"#bac4c8"}]}>
+      <Text style={[tailwind`font-bold`,{fontSize:21}]}>{name}</Text>
     </TouchableOpacity>
   )
 }

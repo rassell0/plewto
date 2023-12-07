@@ -5,6 +5,7 @@ import SplashScreen from './components/splash/SplashScreen';
 import {useFonts} from "expo-font"
 
 import * as ProlongSplashScreen from 'expo-splash-screen';
+import RootSplash from './components/splash/RootSplash';
 export default function App() {
  
  
@@ -22,7 +23,7 @@ export default function App() {
 
   return (
     <View style={tailwind`flex-1`}>
-  <SplashScreen/>
+ <RootSplash/>
     </View>
   );
 }
